@@ -6,3 +6,15 @@
 [![downloads](https://img.shields.io/npm/dm/@barktler/mixin-debug-log.svg)](https://www.npmjs.com/package/@barktler/mixin-debug-log)
 
 :sweat_drops: Debug Logging mixin for Barktler
+
+## Install
+
+```sh
+yarn add @barktler/mixin-debug-log
+# Or
+npm install @barktler/mixin-debug-log --save
+```
+
+## Link
+
+-   [Barktler Documents](//barktler.com)
