@@ -9,6 +9,8 @@ import { Barktler, BarktlerMixin, IRequestConfig, IResponseConfig } from "@barkt
 export type DebugLogMixinOptions = {
 
     readonly isDevelopment: () => boolean;
+    readonly logFunction: (...args: any[]) => void;
+
     readonly requestHeader: string;
     readonly responseHeader: string;
 };
@@ -23,6 +25,7 @@ export const createDebugLogMixin: (options?: Partial<DebugLogMixinOptions>) => B
             }
             return process.env.NODE_ENV.toString().toUpperCase() === 'DEVELOPMENT';
         },
+        logFunction: console.log.bind(console),
         requestHeader: 'DEBUG REQUEST',
         responseHeader: 'DEBUG RESPONSE',
         ...options,
@@ -33,21 +36,25 @@ export const createDebugLogMixin: (options?: Partial<DebugLogMixinOptions>) => B
         instance.preHook.sideEffect.add((request: IRequestConfig) => {
 
             if (mergedOptions.isDevelopment()) {
-                console.log(
+                mergedOptions.logFunction(
                     mergedOptions.requestHeader,
-                    request.url,
-                    request.headers,
-                    request.body,
+                    {
+                        url: request.url,
+                        headers: request.headers,
+                        body: request.body,
+                    },
                 );
             }
         });
         instance.postHook.sideEffect.add((response: IResponseConfig) => {
 
             if (mergedOptions.isDevelopment()) {
-                console.log(
+                mergedOptions.logFunction(
                     mergedOptions.responseHeader,
-                    response.headers,
-                    response.data,
+                    {
+                        headers: response.headers,
+                        data: response.data,
+                    },
                 );
             }
         });
