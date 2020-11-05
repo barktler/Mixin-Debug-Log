@@ -16,10 +16,10 @@
   },
   "homepage": "https://github.com/barktler/Mixin-Debug-Log#readme",
   "peerDependencies": {
-    "@barktler/core": "2.4.0"
+    "@barktler/core": "*"
   },
   "devDependencies": {
-    "@barktler/core": "2.4.0",
+    "@barktler/core": "2.5.0",
     "@barktler/driver-mock": "^2.0.0",
     "@sudoo/io": "^1.8.0",
     "@sudoo/triforce": "^2.9.6"
