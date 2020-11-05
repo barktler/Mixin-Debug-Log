@@ -15,6 +15,6 @@ yarn add @barktler/mixin-debug-log
 npm install @barktler/mixin-debug-log --save
 ```
 
-## Link
+## Documents
 
--   [Barktler Documents](//barktler.com)
+See [Barktler Documents](//barktler.com).
