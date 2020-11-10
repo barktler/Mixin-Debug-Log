@@ -15,6 +15,16 @@ yarn add @barktler/mixin-debug-log
 npm install @barktler/mixin-debug-log --save
 ```
 
+## Usage
+
+```ts
+import { createDebugLogMixin } from "@barktler/mixin-debug-log";
+import { YourAPI } from "somewhere";
+
+const api: YourAPI = new YourAPI();
+api.useMixin(createDebugLogMixin());
+```
+
 ## Documents
 
 See [Barktler Documents](//barktler.com).
