@@ -6,7 +6,7 @@
  */
 
 import { Barktler, RequestDriver } from "@barktler/core";
-import { mockDriver } from "@barktler/driver-mock";
+import { createMockDriver } from "@barktler/driver-mock";
 
 export type ExampleAPIResponse = {
 
@@ -14,7 +14,7 @@ export type ExampleAPIResponse = {
 };
 
 export class ExampleAPI extends Barktler<any, ExampleAPIResponse> {
-    protected readonly defaultDriver: RequestDriver | null = mockDriver;
+    protected readonly defaultDriver: RequestDriver | null = createMockDriver();
 
     public constructor() {
 
