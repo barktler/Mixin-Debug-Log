@@ -1,6 +1,6 @@
 {
   "name": "@barktler/mixin-debug-log",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": ":sweat_drops: Debug Logging mixin for Barktler",
   "repository": {
     "type": "git",

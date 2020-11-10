@@ -14,6 +14,7 @@ export type ExampleAPIResponse = {
 };
 
 export class ExampleAPI extends Barktler<any, ExampleAPIResponse> {
+
     protected readonly defaultDriver: RequestDriver | null = createMockDriver({
         mockResponseData: true,
     });

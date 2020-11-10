@@ -15,7 +15,7 @@ export type DebugLogMixinOptions = {
     readonly responseHeader: string;
 };
 
-export const createDebugLogMixin: (options?: Partial<DebugLogMixinOptions>) => BarktlerMixin = (options?: Partial<DebugLogMixinOptions>) => {
+export const createDebugLogMixin = (options: Partial<DebugLogMixinOptions> = {}): BarktlerMixin => {
 
     const mergedOptions: DebugLogMixinOptions = {
 
