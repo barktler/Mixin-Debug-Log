@@ -19,11 +19,11 @@
     "@barktler/core": "*"
   },
   "devDependencies": {
-    "@barktler/core": "2.7.0",
+    "@barktler/core": "2.10.1",
     "@barktler/driver-mock": "^3.0.2",
     "@sudoo/io": "^1.8.0",
     "@sudoo/pattern": "^1.6.1",
-    "@sudoo/triforce": "^2.9.7"
+    "@sudoo/triforce": "^2.9.16"
   },
   "nyc": {
     "extension": [

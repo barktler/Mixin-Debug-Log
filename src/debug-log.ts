@@ -13,6 +13,7 @@ export type DebugLogMixinOptions = {
 
     readonly requestHeader: string;
     readonly responseHeader: string;
+    readonly errorHeader: string;
 };
 
 export const createDebugLogMixin = (options: Partial<DebugLogMixinOptions> = {}): BarktlerMixin => {
@@ -28,6 +29,7 @@ export const createDebugLogMixin = (options: Partial<DebugLogMixinOptions> = {})
         logFunction: console.log.bind(console),
         requestHeader: 'DEBUG REQUEST',
         responseHeader: 'DEBUG RESPONSE',
+        errorHeader: 'DEBUG RESPONSE ERROR',
         ...options,
     };
 
@@ -46,12 +48,28 @@ export const createDebugLogMixin = (options: Partial<DebugLogMixinOptions> = {})
                 );
             }
         });
+
         instance.postHook.sideEffect.add((response: IResponseConfig) => {
 
             if (mergedOptions.isDevelopment()) {
                 mergedOptions.logFunction(
                     mergedOptions.responseHeader,
                     {
+                        headers: response.headers,
+                        data: response.data,
+                    },
+                );
+            }
+        });
+
+        instance.errorHook.sideEffect.add((response: IResponseConfig) => {
+
+            if (mergedOptions.isDevelopment()) {
+                mergedOptions.logFunction(
+                    mergedOptions.errorHeader,
+                    {
+                        code: response.status,
+                        status: response.statusText,
                         headers: response.headers,
                         data: response.data,
                     },
